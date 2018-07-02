@@ -13,7 +13,7 @@ import java.util.List;
 public class ProductInfoService {
 
     @Autowired
-    private  ProductInfoRepository productInfoRepository;
+    private ProductInfoRepository productInfoRepository;
 
     /**
      * 获取商品信息By Id .
@@ -24,6 +24,7 @@ public class ProductInfoService {
 
     /**
      * 获取所有商品.
+     *
      * @return
      */
     public List<ProductInfo> getAllProductInfo() {
@@ -32,6 +33,7 @@ public class ProductInfoService {
 
     /**
      * 新增一个商品.
+     *
      * @param productInfo .
      * @return
      */
@@ -39,5 +41,14 @@ public class ProductInfoService {
         ProductInfo productInfo1 = productInfoRepository.save(productInfo);
         //BeanUtils.copyProperties(null,null);
         return productInfo1 != null;
+    }
+
+    /**
+     * 删除商品信息ById .
+     *
+     * @param id .
+     */
+    public void delProductInfoById(String id) {
+        productInfoRepository.deleteById(id);
     }
 }

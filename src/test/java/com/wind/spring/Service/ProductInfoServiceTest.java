@@ -21,7 +21,7 @@ public class ProductInfoServiceTest {
     @Test
     public void getProductInfoById() {
         ProductInfo productInfo = productInfoService.getProductInfoById("f1fdc57e-b72b-4b2b-9301-11a85cacef54");
-        Assert.assertEquals(productInfo.getProductId(),"f1fdc57e-b72b-4b2b-9301-11a85cacef54");
+        Assert.assertEquals(productInfo.getProductId(), "f1fdc57e-b72b-4b2b-9301-11a85cacef54");
     }
 
     @Test
@@ -33,6 +33,12 @@ public class ProductInfoServiceTest {
         productInfo.setProductName("上汽大众");
         productInfo.setProductPrice("88888888");
         boolean result = productInfoService.addProductInfo(productInfo);
-        Assert.assertEquals(result,true);
+        Assert.assertEquals(result, true);
+    }
+
+    @Test
+    @Transactional
+    public void delProductInfoById() {
+        productInfoService.delProductInfoById("test");
     }
 }
